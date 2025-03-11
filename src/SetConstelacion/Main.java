@@ -109,15 +109,23 @@ public class Main {
         CuerpoCeleste cuerpoCeleste1=new PlanetaEnano("Pluton",884);
         sistemasolar.put(cuerpoCeleste1.getNombre(),cuerpoCeleste1);
         planetas.add(cuerpoCeleste1);
+        System.out.println();
         //Si le ponemos planeta enano si que te lo añade porque al ser otro tipo de planeta, lo incluye dentro del set
+        System.out.println("Diferencia");
         Set<CuerpoCeleste>diferencia=new HashSet<>(planetas);
         diferencia.removeAll(lunas);
-        System.out.println(diferencia);
+        for(CuerpoCeleste cuerpoCeleste2:diferencia){
+            System.out.println(cuerpoCeleste2.getNombre());
+        }
+        System.out.println();
 
+        System.out.println("Interseccion");
         Set<CuerpoCeleste>Interseccion=new HashSet<>(planetas);
          Interseccion.retainAll(lunas);
-            System.out.println(lunas);
-            //En la diferencia elimina aquello en que estan en los dos set y en interseccion retiene aquello que esta en los dos set
+        for(CuerpoCeleste cuerpoCeleste3:Interseccion){
+            System.out.println(cuerpoCeleste3.getNombre());
+        }
+            //En la diferencia elimina aquello en que estan en los dos set y en interseccion junta aquello que estan en los dos set
     }
     }
 
