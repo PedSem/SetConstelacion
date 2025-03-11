@@ -33,9 +33,8 @@ public class CuerpoCeleste {
         return satelites=new HashSet<>(satelites);
     }
     public boolean AddSatelite(CuerpoCeleste cuerpoCeleste){
-        if(cuerpoCeleste!=null){
-            satelites.add(cuerpoCeleste);
-            return true;
+        if(cuerpoCeleste.tipoCuerpoCeleste==TipoCuerpoCeleste.LUNA){
+            return satelites.add(cuerpoCeleste);
         }else{
             return false;
         }
@@ -61,46 +60,27 @@ public class CuerpoCeleste {
 
 }
 class Planeta extends CuerpoCeleste{
-    private String nombrePlaneta;
-    private double PeriodoOrbitalPlaneta;
-
-    public Planeta(String nombre, double periodoOrbital, TipoCuerpoCeleste tipoCuerpoCeleste, String nombrePlaneta, double periodoOrbitalPlaneta) {
-        super(nombre, periodoOrbital, tipoCuerpoCeleste);
-        this.nombrePlaneta = nombrePlaneta;
-        this.PeriodoOrbitalPlaneta = periodoOrbitalPlaneta;
-        tipoCuerpoCeleste=TipoCuerpoCeleste.PLANETA;
+    public Planeta(String nombre, double periodoOrbital) {
+        super(nombre, periodoOrbital,TipoCuerpoCeleste.PLANETA);
     }
+
     @Override
     public boolean AddSatelite(CuerpoCeleste cuerpoCeleste){
-        if(cuerpoCeleste!=null && cuerpoCeleste.getTipoCuerpoCeleste()==TipoCuerpoCeleste.PLANETA){
-            getSatelites().add(cuerpoCeleste);
-            return true;
-
-        }else{
-            return false;
-        }
+        return super.AddSatelite(cuerpoCeleste);
     }
 
 }
 class PlanetaEnano extends CuerpoCeleste{
-    private String nombreplanetaenano;
-    private double periodoorbitalplanetaenano;
 
-    public PlanetaEnano(String nombre, double periodoOrbital, TipoCuerpoCeleste tipoCuerpoCeleste, String nombreplanetaenano, double periodoorbitalplanetaenano) {
-        super(nombre, periodoOrbital, tipoCuerpoCeleste);
-        this.nombreplanetaenano = nombreplanetaenano;
-        this.periodoorbitalplanetaenano = periodoorbitalplanetaenano;
+    public PlanetaEnano(String nombre, double periodoOrbital) {
+        super(nombre, periodoOrbital, TipoCuerpoCeleste.PLANETA_ENANO);
     }
 
 }
 class Luna extends CuerpoCeleste{
-    private String nombreluna;
-    private double periodoorbitalluna;
 
-    public Luna(String nombre, double periodoOrbital, TipoCuerpoCeleste tipoCuerpoCeleste, String nombreluna, double periodoorbitalluna) {
-        super(nombre, periodoOrbital, tipoCuerpoCeleste);
-        this.nombreluna = nombreluna;
-        this.periodoorbitalluna = periodoorbitalluna;
+    public Luna(String nombre, double periodoOrbital) {
+        super(nombre, periodoOrbital,TipoCuerpoCeleste.LUNA);
     }
 
 }
