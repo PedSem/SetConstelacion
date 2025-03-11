@@ -117,7 +117,7 @@ public class Main {
         Set<CuerpoCeleste>Interseccion=new HashSet<>(planetas);
          Interseccion.retainAll(lunas);
             System.out.println(lunas);
-            //En la diferencia elimina aquello en las lunas y en interseccion retiene lo de las lunas
+            //En la diferencia elimina aquello en que estan en los dos set y en interseccion retiene aquello que esta en los dos set
 
 
     }
