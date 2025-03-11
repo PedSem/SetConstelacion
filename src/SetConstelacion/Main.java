@@ -78,7 +78,6 @@ public class Main {
         System.out.println("Todos los planetas");
         for(CuerpoCeleste cuerpoCeleste:planetas){
             System.out.println(cuerpoCeleste);
-
         }
         System.out.println();
         System.out.println("Las lunas de " + Marte.getNombre());
@@ -118,12 +117,6 @@ public class Main {
          Interseccion.retainAll(lunas);
             System.out.println(lunas);
             //En la diferencia elimina aquello en que estan en los dos set y en interseccion retiene aquello que esta en los dos set
-
-
     }
-
-
-
-
     }
 
