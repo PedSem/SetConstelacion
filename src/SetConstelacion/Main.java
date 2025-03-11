@@ -77,13 +77,15 @@ public class Main {
 
         System.out.println("Todos los planetas");
         for(CuerpoCeleste cuerpoCeleste:planetas){
-            System.out.println(cuerpoCeleste);
+            System.out.println(cuerpoCeleste.getNombre());
         }
         System.out.println();
         System.out.println("Las lunas de " + Marte.getNombre());
-        System.out.println(Marte.getSatelites());
+        for(CuerpoCeleste cuerpoCeleste: Marte.getSatelites()){
+            System.out.println(cuerpoCeleste.getNombre());
+        }
         System.out.println();
-        System.out.println("Todas las lunas");
+        System.out.println("Todas los satelites de la " + Luna.getNombre());
         Set<CuerpoCeleste>lunas=new HashSet<>();
         lunas.add(Deimos);
         lunas.add(Phobos);
@@ -93,7 +95,7 @@ public class Main {
         lunas.add(Callisto);
         lunas.add(Luna);
         for(CuerpoCeleste cuerpoCeleste:lunas){
-                System.out.println(cuerpoCeleste);
+                System.out.println(cuerpoCeleste.getNombre());
         }
         System.out.println();
         CuerpoCeleste cuerpoCeleste=new Planeta("Pluton",884);
@@ -101,9 +103,8 @@ public class Main {
         planetas.add(cuerpoCeleste);
         System.out.println("Todos los planetas");
         for(CuerpoCeleste cuerpoCeleste1:planetas){
-            System.out.println(cuerpoCeleste1);
+            System.out.println(cuerpoCeleste1.getNombre());
             //No te lo añade porque el nombre se ha repetido y en el set no se repiten los valores
-
         }
         CuerpoCeleste cuerpoCeleste1=new PlanetaEnano("Pluton",884);
         sistemasolar.put(cuerpoCeleste1.getNombre(),cuerpoCeleste1);
