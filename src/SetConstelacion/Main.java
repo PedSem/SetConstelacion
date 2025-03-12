@@ -20,7 +20,7 @@ public class Main {
         planetas.add(Venus);
 
         CuerpoCeleste latierra=new Planeta("La Tierra",365);
-        sistemasolar.put(latierra.getNombre(), Venus);
+        sistemasolar.put(latierra.getNombre(), latierra);
         planetas.add(latierra);
 
         CuerpoCeleste Marte=new Planeta("Marte",687);
@@ -52,19 +52,19 @@ public class Main {
         latierra.AddSatelite(Luna);
 
         CuerpoCeleste Deimos=new Luna("Deimos",1.3);
-        sistemasolar.put(Marte.getNombre(), Deimos);
+        sistemasolar.put(Deimos.getNombre(), Deimos);
         Marte.AddSatelite(Deimos);
 
         CuerpoCeleste Phobos=new Luna("Phobos",0.3);
-        sistemasolar.put(Marte.getNombre(),Phobos);
+        sistemasolar.put(Phobos.getNombre(),Phobos);
         Marte.AddSatelite(Phobos);
 
         CuerpoCeleste Io=new Luna("Io",1.8);
-        sistemasolar.put(Jupiter.getNombre(), Io);
+        sistemasolar.put(Io.getNombre(), Io);
         Jupiter.AddSatelite(Io);
 
         CuerpoCeleste Europa=new Luna("Europa",3.5);
-        sistemasolar.put(Jupiter.getNombre(), Europa);
+        sistemasolar.put(Europa.getNombre(), Europa);
         Jupiter.AddSatelite(Europa);
 
         CuerpoCeleste Ganymede=new Luna("Ganymede",7.1);
@@ -72,7 +72,7 @@ public class Main {
         Jupiter.AddSatelite(Ganymede);
 
         CuerpoCeleste Callisto=new Luna("Callisto",16.7);
-        sistemasolar.put(Callisto.getNombre(),Callisto);
+        sistemasolar.put(Callisto.getNombre(), Callisto);
         Jupiter.AddSatelite(Callisto);
 
         System.out.println("Todos los planetas");
@@ -87,33 +87,26 @@ public class Main {
         System.out.println();
         System.out.println("Todas los satelites de la " + Luna.getNombre());
         Set<CuerpoCeleste>lunas=new HashSet<>();
-        lunas.add(Deimos);
-        lunas.add(Phobos);
-        lunas.add(Io);
-        lunas.add(Europa);
-        lunas.add(Ganymede);
-        lunas.add(Callisto);
-        lunas.add(Luna);
-        for(CuerpoCeleste cuerpoCeleste:lunas){
-                System.out.println(cuerpoCeleste.getNombre());
+        for(CuerpoCeleste luna:sistemasolar.values()){
+            lunas.addAll(luna.getSatelites());
+        }
+        for(CuerpoCeleste luna:lunas){
+            System.out.println(luna.getNombre());
         }
         System.out.println();
         CuerpoCeleste cuerpoCeleste=new Planeta("Pluton",884);
         sistemasolar.put(cuerpoCeleste.getNombre(),cuerpoCeleste);
         planetas.add(cuerpoCeleste);
-        System.out.println("Todos los planetas");
-        for(CuerpoCeleste cuerpoCeleste1:planetas){
-            System.out.println(cuerpoCeleste1.getNombre());
-            //No te lo añade porque el nombre se ha repetido y en el set no se repiten los valores
-        }
+        System.out.println(sistemasolar.toString());//Si le añadimos pluton como planeta,no lo ahrá porque ya esta declarado dentro del planeta
         CuerpoCeleste cuerpoCeleste1=new PlanetaEnano("Pluton",884);
         sistemasolar.put(cuerpoCeleste1.getNombre(),cuerpoCeleste1);
         planetas.add(cuerpoCeleste1);
+        System.out.println(sistemasolar.toString());
         System.out.println();
-        //Si le ponemos planeta enano si que te lo añade porque al ser otro tipo de planeta, lo incluye dentro del set
+        //Si le ponemos planeta enano si que te lo añade porque al ser otro tipo de planeta,lo añadira dentro de planetas
         System.out.println("Diferencia");
         Set<CuerpoCeleste>diferencia=new HashSet<>(planetas);
-        diferencia.removeAll(lunas);
+        diferencia.removeAll(sistemasolar.values());
         for(CuerpoCeleste cuerpoCeleste2:diferencia){
             System.out.println(cuerpoCeleste2.getNombre());
         }
@@ -121,7 +114,7 @@ public class Main {
 
         System.out.println("Interseccion");
         Set<CuerpoCeleste>Interseccion=new HashSet<>(planetas);
-         Interseccion.retainAll(lunas);
+         Interseccion.retainAll(sistemasolar.values());
         for(CuerpoCeleste cuerpoCeleste3:Interseccion){
             System.out.println(cuerpoCeleste3.getNombre());
         }
