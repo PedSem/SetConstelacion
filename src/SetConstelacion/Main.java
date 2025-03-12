@@ -85,7 +85,7 @@ public class Main {
             System.out.println(cuerpoCeleste.getNombre());
         }
         System.out.println();
-        System.out.println("Todas los satelites de la " + Luna.getNombre());
+        System.out.println("Todas los satelites de " + Luna.getNombre());
         Set<CuerpoCeleste>lunas=new HashSet<>();
         for(CuerpoCeleste luna:sistemasolar.values()){
             lunas.addAll(luna.getSatelites());
