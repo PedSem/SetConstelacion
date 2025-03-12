@@ -97,7 +97,7 @@ public class Main {
         CuerpoCeleste cuerpoCeleste=new Planeta("Pluton",884);
         sistemasolar.put(cuerpoCeleste.getNombre(),cuerpoCeleste);
         planetas.add(cuerpoCeleste);
-        System.out.println(sistemasolar.toString());//Si le añadimos pluton como planeta,no lo ahrá porque ya esta declarado dentro del planeta
+        System.out.println(sistemasolar.toString());//Si le añadimos pluton como planeta,no lo hara porque ya esta declarado dentro de planetas
         CuerpoCeleste cuerpoCeleste1=new PlanetaEnano("Pluton",884);
         sistemasolar.put(cuerpoCeleste1.getNombre(),cuerpoCeleste1);
         planetas.add(cuerpoCeleste1);
@@ -117,8 +117,7 @@ public class Main {
          Interseccion.retainAll(sistemasolar.values());
         for(CuerpoCeleste cuerpoCeleste3:Interseccion){
             System.out.println(cuerpoCeleste3.getNombre());
-        }
-            //En la diferencia elimina aquello en que estan en los dos set y en interseccion junta aquello que estan en los dos set
+        }//En la diferencia elimina aquello en que estan en los dos set y en interseccion junta aquello que estan en los dos set
     }
     }
 

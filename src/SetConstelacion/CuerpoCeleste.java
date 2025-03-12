@@ -9,7 +9,6 @@ public class CuerpoCeleste {
     private double periodoOrbital;
     private Set<CuerpoCeleste>satelites;
     private TipoCuerpoCeleste tipoCuerpoCeleste;
-
     public CuerpoCeleste(String nombre, double periodoOrbital, TipoCuerpoCeleste tipoCuerpoCeleste) {
         this.nombre = nombre;
         this.periodoOrbital = periodoOrbital;
